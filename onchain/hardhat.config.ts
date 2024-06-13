@@ -6,6 +6,7 @@ import "@typechain/hardhat";
 import "hardhat-deploy";
 import path from "path";
 import { Chain, sepolia } from "@wagmi/chains";
+import "@nomicfoundation/hardhat-foundry";
 
 // read MNEMONIC from env variable
 let mnemonic = process.env.MNEMONIC;
@@ -44,7 +45,12 @@ const config: HardhatUserConfig = {
     sepolia: networkConfig(sepolia),
   },
 
-  solidity: "0.8.18",
+  solidity: {
+    version: "0.8.26",
+    settings: {
+      viaIR: true,
+    },
+  },
 
   external: {
     contracts: [

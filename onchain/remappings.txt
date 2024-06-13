@@ -1,0 +1,6 @@
+@openzeppelin/contracts/=blobstream-contracts/lib/openzeppelin-contracts-upgradeable/contracts/
+ds-test/=blobstream-contracts/lib/ds-test/src/
+erc4626-tests/=blobstream-contracts/lib/openzeppelin-contracts-upgradeable/lib/erc4626-tests/
+forge-std/=blobstream-contracts/lib/openzeppelin-contracts-upgradeable/lib/forge-std/src/
+openzeppelin-contracts-upgradeable/=blobstream-contracts/lib/openzeppelin-contracts-upgradeable/
+openzeppelin-contracts/=blobstream-contracts/lib/openzeppelin-contracts/
