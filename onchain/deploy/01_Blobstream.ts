@@ -1,5 +1,10 @@
 import { HardhatRuntimeEnvironment } from "hardhat/types";
 import { DeployFunction, DeployOptions } from "hardhat-deploy/types";
+import {
+  abi,
+  bytecode,
+  deployedBytecode,
+} from "../blobstream-contracts/out/Blobstream.sol/Blobstream.json";
 
 const func: DeployFunction = async (hre: HardhatRuntimeEnvironment) => {
   const { deployments, getNamedAccounts } = hre;
@@ -11,13 +16,15 @@ const func: DeployFunction = async (hre: HardhatRuntimeEnvironment) => {
     log: true,
   };
 
-  const { InputBox } = await deployments.all();
-
-  await deployments.deploy("CelestiaRelay", {
+  await deployments.deploy("Blobstream", {
     ...opts,
-    args: [InputBox.address],
+    contract: {
+      abi,
+      bytecode: bytecode.object,
+      deployedBytecode: deployedBytecode.object,
+    },
   });
 };
 
 export default func;
-func.tags = ["CelestiaRelay"];
+func.tags = ["Blobstream"];
