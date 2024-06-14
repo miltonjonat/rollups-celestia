@@ -23,10 +23,12 @@ describe("CelestiaRelay", function () {
     // relay block
     const sharesProofs: any = {};
     const root = "0x";
+    const execLayerData = "0x";
     const tx = await celestiaRelay.relayShares(
       DAPP_ADDRESS,
       sharesProofs,
-      root
+      root,
+      execLayerData
     );
     // const events = (await tx.wait()).events;
 
