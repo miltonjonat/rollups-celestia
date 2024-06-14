@@ -12,8 +12,11 @@
     "clean": "run-s clean:hardhat clean:ignored",
     "copy-dts": "copyfiles -u 1 \"src/**/*.d.ts\" dist/src",
     "compile": "hardhat compile",
-    "deploy": "hardhat deploy --network localhost",
+    "deploy": "run-s deploy:sepolia deploy:arbitrum_sepolia deploy:base_sepolia",
+    "deploy:localhost": "hardhat deploy --network localhost",
     "deploy:sepolia": "hardhat deploy --network sepolia --export export/abi/sepolia.json",
+    "deploy:arbitrum_sepolia": "hardhat deploy --network arbitrum_sepolia --export export/abi/arbitrum_sepolia.json",
+    "deploy:base_sepolia": "hardhat deploy --network base_sepolia --export export/abi/base_sepolia.json",
     "export": "hardhat export-artifacts export/artifacts --hide-sources --including-empty-bytecode --including-no-public-functions",
     "prepack": "run-s build tsc:prod copy-dts",
     "start": "hardhat node",
@@ -36,7 +39,6 @@
     "@types/chai": "^4.2.0",
     "@types/mocha": ">=9.1.0",
     "@types/node": ">=12.0.0",
-    "@wagmi/chains": "^1.6",
     "chai": "^4.2.0",
     "copyfiles": "^2",
     "ethers": "^5.4.7",
@@ -47,7 +49,8 @@
     "solidity-coverage": "^0.8.0",
     "ts-node": ">=8.0.0",
     "typechain": "^8.1.0",
-    "typescript": ">=4.5.0"
+    "typescript": ">=4.5.0",
+    "viem": "^2.14.0"
   },
   "dependencies": {
     "@cartesi/rollups": "^2.0.0-rc.3"

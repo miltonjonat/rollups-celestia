@@ -8,6 +8,8 @@ import {
 
 export const blobstreamDeploymentAddresses: any = {
   sepolia: "0xF0c6429ebAB2e7DC6e05DaFB61128bE21f13cb1e",
+  arbitrum_sepolia: "0xc3e209eb245Fd59c8586777b499d6A665DF3ABD2",
+  base_sepolia: "0xc3e209eb245Fd59c8586777b499d6A665DF3ABD2",
 };
 
 const func: DeployFunction = async (hre: HardhatRuntimeEnvironment) => {
