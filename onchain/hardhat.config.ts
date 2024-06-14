@@ -5,14 +5,14 @@ import "@nomicfoundation/hardhat-toolbox";
 import "@typechain/hardhat";
 import "hardhat-deploy";
 import path from "path";
-import { Chain, sepolia } from "@wagmi/chains";
+import { Chain, arbitrumSepolia, baseSepolia, sepolia } from "viem/chains";
 import "@nomicfoundation/hardhat-foundry";
 
 // read MNEMONIC from env variable
 let mnemonic = process.env.MNEMONIC;
 
 const networkConfig = (chain: Chain): HttpNetworkUserConfig => {
-  let url = process.env.RPC_URL || chain.rpcUrls.public.http.at(0);
+  let url = process.env.RPC_URL || chain.rpcUrls.default.http.at(0);
 
   // support for infura and alchemy URLs through env variables
   if (process.env.INFURA_ID && chain.rpcUrls.infura?.http) {
@@ -43,6 +43,8 @@ const config: HardhatUserConfig = {
       accounts: mnemonic ? { mnemonic } : undefined,
     },
     sepolia: networkConfig(sepolia),
+    arbitrum_sepolia: networkConfig(arbitrumSepolia),
+    base_sepolia: networkConfig(baseSepolia),
   },
 
   solidity: {
