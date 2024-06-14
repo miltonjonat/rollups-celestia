@@ -1,1 +1,1 @@
-# Cartesi Rollups on-chain support for Espresso
+# Cartesi Rollups on-chain support for Celestia
