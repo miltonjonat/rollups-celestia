@@ -392,7 +392,7 @@
       ]
     },
     "CelestiaRelay": {
-      "address": "0x5512fF0fB72366F879aD1E1940cDc8a921b52aae",
+      "address": "0x9246F2Ca979Ef55FcacB5C4D3F46D36399da760e",
       "abi": [
         {
           "inputs": [
@@ -632,6 +632,11 @@
               "internalType": "bytes32",
               "name": "_root",
               "type": "bytes32"
+            },
+            {
+              "internalType": "bytes",
+              "name": "_execLayerData",
+              "type": "bytes"
             }
           ],
           "name": "relayShares",
