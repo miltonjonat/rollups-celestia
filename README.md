@@ -18,7 +18,8 @@ The following diagram summarizes the architecture and general workflow:
 
 1. DApp is deployed to an Ethereum-compatible network for which there is a Blobstream contract receiving Celestia commitments
 1. Client submits data (a blob) to Celestia, specifying a namespace associated with the Cartesi DApp's address
-1. Once the blob is included in a Celestia block, client builds a proof of its inclusion in that block
+1. Alternatively, client can retrieve the reference of a blob previously submitted by other actors
+1. Once the blob is included in a Celestia block and that block's commitment is submitted to the `Blobstream` contract, client builds a proof of the blob's inclusion in the commitment
 1. Client submits the blob inclusion proof to a `CelestiaRelay` contract on the base layer, with the intent of sending it to the Cartesi DApp's back-end
 1. The `CelestiaRelay` contract calls the Celestia `Blobstream` contract to verify the blob inclusion proof against the official Celestia data commitments
 1. Once the blob is validated, the `CelestiaRelay` contract calls the Cartesi `InputBox` to add a pointer (ID) to the blob as an input to the Cartesi DApp
