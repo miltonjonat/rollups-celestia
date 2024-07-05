@@ -24,12 +24,12 @@ contract CelestiaRelay {
     /// @notice Relay a pointer to the specified Celestia shares as an input to a DApp's input box
     /// @dev Called by clients to securely process Celestia data in Cartesi DApps
     /// @param _dapp The address of the DApp
-    /// @param _proof SharesProof object showing that a range of shares is committed to Celestia
+    /// @param _proof ShareDigestsProof object showing that a range of shares is committed to Celestia
     /// @param _execLayerData Additional data to be interpreted by the execution layer
     /// @return The hash of the input as returned by the Cartesi DApp's input box
     function relayShares(
         address _dapp,
-        SharesProof memory _proof,
+        ShareDigestsProof memory _proof,
         bytes calldata _execLayerData
     ) external returns (bytes32)
     {
@@ -38,7 +38,7 @@ contract CelestiaRelay {
 
         // verify if shares are committed to the Celestia Blobstream contract
         (bool verified, DAVerifier.ErrorCodes errorCode) =
-            DAVerifier.verifySharesToDataRootTupleRoot(
+            DAVerifier.verifyShareDigestsToDataRootTupleRoot(
                 blobstreamX,
                 _proof,
                 dataRoot

@@ -392,7 +392,7 @@
       ]
     },
     "CelestiaRelay": {
-      "address": "0xAc4D5eeB63CCEA4195f34c8d6766594F99c9E00E",
+      "address": "0x4e64020dc800f02decb8Bd45bB4D0f74048e7535",
       "abi": [
         {
           "inputs": [
@@ -420,9 +420,9 @@
             {
               "components": [
                 {
-                  "internalType": "bytes[]",
-                  "name": "data",
-                  "type": "bytes[]"
+                  "internalType": "bytes32[]",
+                  "name": "digests",
+                  "type": "bytes32[]"
                 },
                 {
                   "components": [
@@ -624,7 +624,7 @@
                   "type": "tuple"
                 }
               ],
-              "internalType": "struct SharesProof",
+              "internalType": "struct ShareDigestsProof",
               "name": "_proof",
               "type": "tuple"
             },
